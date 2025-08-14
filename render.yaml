@@ -1,10 +1,12 @@
 services:
   - type: web
-    name: captcha-aware-fetcher
+    name: playwright-captcha-aware
     env: node
     plan: free
-    buildCommand: "npm install"
-    startCommand: "npm start"
+    buildCommand: |
+      npm ci
+      npx playwright install --with-deps
+    startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
