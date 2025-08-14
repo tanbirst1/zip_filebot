@@ -1,12 +1,9 @@
 services:
   - type: web
-    name: playwright-captcha-aware
-    env: node
+    name: cf-bypass-scraper
+    env: docker
     plan: free
-    buildCommand: |
-      npm ci
-      npx playwright install --with-deps
-    startCommand: npm start
+    dockerfilePath: ./Dockerfile
     envVars:
-      - key: NODE_ENV
-        value: production
+      - key: PORT
+        value: 10000
